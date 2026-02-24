@@ -15,10 +15,13 @@
             <version>7.0.5</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>4.1.0-M2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-    <!-- Source: https://mvnrepository.com/artifact/org.springframework/spring-web -->
-
-
     <properties>
         <maven.compiler.source>23</maven.compiler.source>
         <maven.compiler.target>23</maven.compiler.target>
