@@ -1,4 +1,4 @@
-package com.example.jobapplicationtracker.jobapplication;
+package com.example.jobapplicationtracker.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,6 +15,7 @@ public class JobApplication {
     @Id
     @GeneratedValue
     private long id;
+
     private String company;
     private String role;
     private String location;

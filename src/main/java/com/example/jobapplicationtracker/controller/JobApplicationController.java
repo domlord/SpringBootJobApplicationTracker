@@ -1,4 +1,4 @@
-package com.example.jobapplicationtracker;
+package com.example.jobapplicationtracker.controller;
 
 import org.springframework.stereotype.Controller;
 
