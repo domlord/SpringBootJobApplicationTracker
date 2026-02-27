@@ -1,8 +1,8 @@
 package com.example.jobapplicationtracker.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class JobApplicationController {
 
     public String
