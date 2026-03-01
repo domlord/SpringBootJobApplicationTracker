@@ -1,5 +1,16 @@
 package com.dom.jobapplicationtracker.controller.dto;
 
-public record CreateJobApplicationRequest(String company, String role, String location, Integer salary) {
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+
+public record CreateJobApplicationRequest(
+        @NotBlank
+        String company,
+        @NotBlank
+        String role,
+        @NotBlank
+        String location,
+        @Min(0)
+        Integer salary) {
 
 }
