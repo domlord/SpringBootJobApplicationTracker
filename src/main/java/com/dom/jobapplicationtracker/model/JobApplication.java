@@ -1,4 +1,4 @@
-package com.example.jobapplicationtracker.model;
+package com.dom.jobapplicationtracker.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,11 +14,11 @@ import lombok.*;
 public class JobApplication {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String company;
     private String role;
     private String location;
-    private int salary;
+    private Integer salary;
 
 }
