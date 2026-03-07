@@ -2,6 +2,8 @@ package com.dom.jobapplicationtracker.service;
 
 import com.dom.jobapplicationtracker.controller.dto.CreateJobApplicationRequest;
 import com.dom.jobapplicationtracker.controller.dto.JobApplicationResponse;
+import com.dom.jobapplicationtracker.controller.dto.UpdateJobApplicationRequest;
+import com.dom.jobapplicationtracker.exception.JobApplicationNotFoundException;
 import com.dom.jobapplicationtracker.model.JobApplication;
 import com.dom.jobapplicationtracker.repository.JobApplicationRepository;
 import org.springframework.stereotype.Service;
@@ -41,10 +43,35 @@ public class JobApplicationService {
 
     public JobApplicationResponse getById(Long id) {
         JobApplication jobApplication = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Job application not found"));
+                .orElseThrow(() -> new JobApplicationNotFoundException(id));
 
         return mapToResponse(jobApplication);
 
+    }
+
+    public JobApplicationResponse update(Long id, UpdateJobApplicationRequest request) {
+        JobApplication jobApplication = repository.findById(id)
+                .orElseThrow(() -> new JobApplicationNotFoundException(id));
+
+        if (request.company() != null) {
+            jobApplication.setCompany(request.company());
+        }
+
+        if (request.role() != null) {
+            jobApplication.setRole(request.role());
+        }
+
+        if (request.location() != null) {
+            jobApplication.setLocation(request.location());
+        }
+
+        if (request.salary() != null) {
+            jobApplication.setSalary(request.salary());
+        }
+
+        JobApplication updated = repository.save(jobApplication);
+
+        return mapToResponse(updated);
     }
 
     private JobApplicationResponse mapToResponse(JobApplication jobApplication) {
