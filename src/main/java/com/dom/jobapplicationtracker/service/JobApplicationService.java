@@ -88,5 +88,6 @@ public class JobApplicationService {
         if(!repository.existsById(id)) {
             throw new JobApplicationNotFoundException(id);
         }
+        repository.deleteById(id);
     }
 }
