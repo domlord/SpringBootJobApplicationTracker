@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/applications")
@@ -47,10 +48,12 @@ public class JobApplicationController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Map<String, String>> delete(@PathVariable Long id) {
         service.delete(id);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(
+                Map.of("message", "job application " + id + " successfully deleted")
+        );
     }
 
 }
